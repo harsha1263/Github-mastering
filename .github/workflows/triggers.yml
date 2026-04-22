@@ -9,8 +9,18 @@ on:
   workflow_dispatch:
   
 jobs:
-  checking:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: check trigger
-        run: echo "checking triggers"
+        run: echo "build is triggerd"
+        
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delpoying application
+        run: echo "Deploying application"
+      
+  
+  
